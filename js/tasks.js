@@ -17,14 +17,16 @@ console.log(sorted2)
 function getTheArguments() {
     const order = []
     Object.keys(arguments).forEach(key => {
-        const type = typeof (arguments[key]);
+        const value = arguments[key]
+        const type = typeof value;
+        
         const existing = order.find(item => item.type === type)
         if (existing) {
             existing.amount += 1
         } else {
             order.push({ type, amount: 1 })
         }
-        console.log(`${type}: ${JSON.stringify(arguments[key]) || arguments[key]}`)
+        console.log(`${type}: ${JSON.stringify(value) || value}`)
     })
     order.forEach(item => {
         console.log(`${item.type}: ${item.amount}`)
